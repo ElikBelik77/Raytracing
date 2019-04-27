@@ -9,7 +9,7 @@ class Vector:
 
     def magnitude(self):
         return math.sqrt(self.x ** 2 + self.y ** 2 + self.z ** 2) if math.sqrt(
-            self.x ** 2 + self.y ** 2 + self.z ** 2) != 0 else 1
+            self.x ** 2 + self.y ** 2 + self.z ** 2) != 0 else 0
 
     def normalize(self):
         mag = self.magnitude()
@@ -62,6 +62,9 @@ class Vector:
                 min_point = p
 
         return min_point
+
+    def modulus_add(self,v, max):
+        return Vector((self.x+v.x)%max.x,(self.y+v.y)%max.y, (self.z+v.z)%max.z)
 
     def get_direction(self):
         return Vector(math.acos(self.x / self.magnitude()), math.acos(self.y / self.magnitude()),
